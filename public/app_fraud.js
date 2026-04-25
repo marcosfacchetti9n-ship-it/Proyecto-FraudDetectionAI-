@@ -4,10 +4,10 @@
 
 // URL del servidor backend
 // Para desarrollo local: http://localhost:5000
-// Para producción: configura la variable de entorno API_URL en Netlify
-const API_URL = window.location.hostname === 'localhost' 
-    ? 'http://localhost:5000' 
-    : (process.env.API_URL || 'https://tu-backend-api.onrender.com');
+// Para producción: usa la API desplegada en Render
+const API_URL = window.location.hostname === 'localhost'
+    ? 'http://localhost:5000'
+    : 'https://fraud-detection-api-jmx0.onrender.com';
 
 // FUNCIÓN: Cuando la página carga, ejecutar esto
 document.addEventListener('DOMContentLoaded', function() {

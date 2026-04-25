@@ -1,5 +1,5 @@
 # Redirecciones para API calls
-/api/*  https://tu-backend-api.onrender.com/:splat  200
+/api/*  https://fraud-detection-api-jmx0.onrender.com/:splat  200
 
 # SPA fallback
 /*    /index.html   200

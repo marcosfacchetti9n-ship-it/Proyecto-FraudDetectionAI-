@@ -127,21 +127,22 @@ O abre el archivo `index_fraud.html` directamente (pero necesitas que el servido
    - **Build command**: `echo 'No build needed'`
    - **Publish directory**: `public`
 4. **Variables de entorno**:
-   - `API_URL`: La URL de tu backend (ej: `https://tu-proyecto.onrender.com`)
+   - `API_URL`: La URL de tu backend. En este proyecto ya está configurada a:
+     `https://fraud-detection-api-jmx0.onrender.com`
 
 #### PASO 3: Actualizar URLs
 
-Antes de desplegar, edita estos archivos:
+Este repositorio ya está listo para usar tu backend desplegado en Render.
 
 **En `netlify.toml`**:
 ```toml
 [build.environment]
-  API_URL = "https://tu-backend-api.onrender.com"
+  API_URL = "https://fraud-detection-api-jmx0.onrender.com"
 ```
 
 **En `public/_redirects`**:
 ```
-/api/*  https://tu-backend-api.onrender.com/:splat  200
+/api/*  https://fraud-detection-api-jmx0.onrender.com/:splat  200
 ```
 
 ### Opción 2: Despliegue Completo en Railway

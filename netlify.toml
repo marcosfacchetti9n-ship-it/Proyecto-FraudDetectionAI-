@@ -7,12 +7,12 @@
 
 [build.environment]
   # Variables de entorno para el frontend
-  API_URL = "https://tu-backend-api.onrender.com"
+  API_URL = "https://fraud-detection-api-jmx0.onrender.com"
 
 # Redirecciones para SPA (Single Page Application)
 [[redirects]]
   from = "/api/*"
-  to = "https://tu-backend-api.onrender.com/:splat"
+  to = "https://fraud-detection-api-jmx0.onrender.com/:splat"
   status = 200
 
 # Headers de seguridad
