@@ -1,223 +1,166 @@
-# 🔍 Detector de Fraude Financiero - Proyecto de IA
+# 🔍 Detector de Fraude Financiero
 
-## 📚 Descripción
+## 👋 Presentación
 
-Este es un proyecto educativo que implementa un **Detector de Fraude Financiero** usando **Machine Learning**.
+Soy Marcos Facchetti y este proyecto demuestra cómo construí una solución completa para detectar fraude en transacciones financieras.
 
-El sistema usa una **Red de Árboles de Decisión (Random Forest)** para analizar transacciones y predecir si son fraudulentas o legítimas.
+La aplicación combina:
+- un modelo de Machine Learning entrenado con datos de transacciones,
+- una API backend en Flask,
+- y una interfaz web que consume la API en tiempo real.
 
-### ¿Por qué es importante estudiar este código?
-
-- ✅ Aprenderás cómo funciona el **Machine Learning en práctica**
-- ✅ Entenderás el flujo completo: datos → modelo → predicción
-- ✅ Verás cómo integrar **Python + JavaScript** en una aplicación
-- ✅ Descubrirás técnicas reales usadas en **empresas financieras**
+Mi objetivo fue desarrollar un caso práctico sólido que muestre tanto habilidades técnicas como enfoque en producto.
 
 ---
 
-## 🏗️ Estructura del Proyecto
+## 🎯 Qué resolví
 
-```
+- Detectar transacciones sospechosas mediante clasificación binaria
+- Entrenar un modelo con transformaciones de datos consistentes
+- Crear un backend que expone una API REST para predicciones
+- Construir una interfaz UX simple para probar casos en vivo
+- Desplegar todo en Render para un entorno de producción real
+
+---
+
+## 🧠 Por qué es relevante
+
+Este proyecto es útil para un recruiter porque demuestra:
+
+- experiencia en **end-to-end delivery**
+- uso de **Python + Flask + scikit-learn**
+- capacidad de integrar **backend y frontend**
+- enfoque en **deploy y disponibilidad en la nube**
+- documentación clara y fácil de revisar
+
+---
+
+## 📁 Estructura del proyecto
+
+```bash
 Proyecto_3/
-├── train_model.py           # ⭐ Script para ENTRENAR el modelo
-├── app.py                   # ⭐ Servidor backend (API)
-├── index_fraud.html         # Interfaz web
-├── style_fraud.css          # Estilos
-├── app_fraud.js             # Lógica del navegador
-├── transactions.csv         # Dataset de ejemplo
-├── requirements.txt         # Dependencias
-└── README.md                # Este archivo
+├── train_model.py          # Entrena y guarda el modelo de fraude
+├── app.py                  # API REST en Flask
+├── index_fraud.html        # Interfaz web de demostración
+├── style_fraud.css         # Estilos del frontend
+├── app_fraud.js            # Lógica de interacción del navegador
+├── transactions.csv        # Dataset de ejemplo
+├── requirements.txt        # Dependencias del proyecto
+└── README.md               # Documentación del proyecto
 ```
 
 ---
 
-## 🚀 Cómo Ejecutar
+## 🚀 Cómo ejecutarlo localmente
 
-### PASO 1: Instalar dependencias
+### Instalar dependencias
 
 ```bash
 pip install -r requirements.txt
 ```
 
-Esto instala:
-- **Flask**: Servidor web
-- **scikit-learn**: Machine Learning
-- **pandas**: Manipulación de datos
-- **numpy**: Matemática
-
-### PASO 2: Entrenar el modelo
+### Entrenar el modelo
 
 ```bash
 python train_model.py
 ```
 
-**¿Qué hace?**
-1. Lee los datos de `transactions.csv`
-2. Enseña al modelo a reconocer patrones de fraude
-3. Guarda el modelo en `fraud_model.pkl`
-4. Muestra métricas de precisión
-
-**Salida esperada:**
-```
-==================================================
-INICIANDO ENTRENAMIENTO DEL MODELO
-==================================================
-
-1. Cargando datos de transacciones...
-   ✓ Datos cargados: 20 transacciones
-
-2. Preparando datos para el modelo...
-   ✓ Características de entrada (X): (20, 6)
-   ✓ Variable objetivo (y): (20,)
-
-...
-
-==================================================
-¡ENTRENAMIENTO COMPLETADO EXITOSAMENTE!
-==================================================
-```
-
-### PASO 3: Iniciar el servidor
+### Iniciar la API
 
 ```bash
 python app.py
 ```
 
-**Salida esperada:**
+### Acceder a la aplicación
+
+Abre tu navegador en:
+
+```text
+http://localhost:5000
 ```
-🚀 INICIANDO SERVIDOR...
-==================================================
-Abierto en: http://localhost:5000
-Presiona CTRL+C para detener el servidor
-==================================================
-```
-
-### PASO 4: Abrir la interfaz
-
-Abre en tu navegador: **http://localhost:5000**
-
-O abre el archivo `index_fraud.html` directamente (pero necesitas que el servidor esté corriendo)
 
 ---
 
-## 🌐 Despliegue en Producción
+## 🌐 Despliegue en Render
 
-Este proyecto ya funciona completamente en Render como una aplicación Flask completa.
+Este proyecto está desplegado en Render y funciona como una demo completa de frontend + backend.
 
-### Despliegue en Render
+- **URL de la aplicación / API**: `https://fraud-detection-api-jmx0.onrender.com`
 
-1. **Crear cuenta en Render**: https://render.com
-2. **Conectar tu repo de GitHub**
-3. **Crear un nuevo Web Service**
-4. **Configurar el servicio**:
-   - **Runtime**: Python 3
-   - **Build Command**: `pip install -r requirements.txt`
-   - **Start Command**: `python app.py`
-   - **Environment Variables**:
-     - `FLASK_ENV=production`
-     - `PORT=10000`
-5. **Deploy** y usa la URL que Render te asigne.
+### Configuración principal
 
-### Nota
+- **Runtime**: Python 3
+- **Build command**: `pip install -r requirements.txt`
+- **Start command**: `python app.py`
+- **Environment variables**:
+  - `FLASK_ENV=production`
+  - `PORT=10000`
 
-No es necesario usar Netlify. El servidor Flask ya sirve el `index_fraud.html`, el CSS y el JS desde Render.
+> Nota: el servidor Flask sirve tanto el frontend como el backend en Render.
 
 ---
 
-## 📊 Tecnologías Usadas
+## 🛠️ Stack tecnológico
 
-- **Backend**: Python + Flask
-- **Machine Learning**: scikit-learn (Random Forest)
-- **Frontend**: HTML + CSS + JavaScript
-- **Datos**: Pandas + NumPy
-- **Despliegue**: Netlify (frontend) + Render/Railway (backend)
+- **Python**
+- **Flask**
+- **scikit-learn**
+- **Pandas**
+- **NumPy**
+- **HTML / CSS / JavaScript**
 
 ---
 
-## 📖 Explicación del Código
+## 📌 Detalle técnico
 
-### 1️⃣ train_model.py - Entrenamiento
+### train_model.py
 
-```python
-# PASO 1: Cargar datos
-datos = pd.read_csv('transactions.csv')
+Este script:
+- carga el dataset,
+- codifica variables categóricas,
+- normaliza los datos,
+- entrena un modelo Random Forest,
+- y guarda el modelo con `joblib`.
 
-# PASO 2: Separar características (X) y objetivo (y)
-X = datos.drop('is_fraud', axis=1)  # Todo excepto 'is_fraud'
-y = datos['is_fraud']                # Solo 'is_fraud' (0=legítimo, 1=fraude)
+### app.py
 
-# PASO 3: Dividir en entrenamiento (80%) y prueba (20%)
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
+Implementa una API REST que:
+- recibe datos de transacciones,
+- transforma y normaliza los datos,
+- hace la predicción con el modelo cargado,
+- y devuelve resultados en JSON.
 
-# PASO 4: Normalizar (escala 0-1)
-scaler = StandardScaler()
-X_train_scaled = scaler.fit_transform(X_train)
+### app_fraud.js
 
-# PASO 5: Crear y entrenar el modelo
-modelo = RandomForestClassifier(n_estimators=100)
-modelo.fit(X_train_scaled, y_train)  # ¡EL MODELO APRENDE!
+Controla la interacción del frontend:
+- toma los valores del formulario,
+- llama a la API `/predict`,
+- y muestra el resultado en pantalla.
 
-# PASO 6: Guardar para usar después
-joblib.dump(modelo, 'fraud_model.pkl')
-```
+---
 
-**¿Qué es Random Forest?**
+## 📎 Qué aporta este proyecto
 
-Un "bosque" de 100 árboles de decisión. Cada árbol hace preguntas como:
-- ¿Es el monto > $1000?
-- ¿Es la hora < 6?
-- ¿Está a más de 100 km?
+- muestra una entrega completa de producto
+- integra modelo, API y frontend
+- está listo para revisión por un recruiter
+- refleja buenas prácticas de despliegue en la nube
 
-Luego la mayoría "vota" si es fraude o no.
+---
 
-### 2️⃣ app.py - API Backend
+## 📌 Resultado esperado
 
-```python
-@app.route('/predict', methods=['POST'])
-def predecir_fraude():
-    # Recibe datos del navegador
-    data = request.json
-    
-    # Crear DataFrame con los datos
-    entrada = pd.DataFrame([data])
-    
-    # Normalizar (misma escala que en entrenamiento)
-    entrada_normalizada = scaler.transform(entrada)
-    
-    # Pedir predicción al modelo
-    prediccion = modelo.predict(entrada_normalizada)
-    
-    # Obtener probabilidades (0-100%)
-    probabilidades = modelo.predict_proba(entrada_normalizada)
-    
-    # Devolver resultado al navegador
-    return jsonify({
-        'prediccion': 'FRAUDE' if prediccion == 1 else 'LEGÍTIMO',
-        'confianza': probabilidades[1] * 100
-    })
-```
+La aplicación permite probar transacciones reales y obtiene una predicción clara de:
+- **FRAUDE**
+- **LEGÍTIMO**
 
-**¿Cómo funciona?**
+Incluye además un porcentaje de confianza.
 
-1. El navegador envía datos (POST)
-2. El servidor recibe los datos
-3. Aplica las mismas transformaciones que en entrenamiento
-4. Pide al modelo que prediga
-5. Devuelve el resultado al navegador (JSON)
+---
 
-### 3️⃣ app_fraud.js - Lógica Frontend
+## 👨‍💻 Nota final
 
-```javascript
-// Cuando el usuario hace click en "Analizar"
-async function analizarTransaccion() {
-    // 1. Obtener datos del formulario
-    const monto = document.getElementById('amount').value;
-    const hora = document.getElementById('hour').value;
-    
-    // 2. Validar que no falten datos
-    if (!monto || !hora) {
-        alert('Completa todos los campos');
-        return;
+Este repositorio es una demostración práctica de mis habilidades en Inteligencia Artificial aplicada, desarrollo web y despliegue de soluciones en la nube.
     }
     
     // 3. Enviar al servidor
