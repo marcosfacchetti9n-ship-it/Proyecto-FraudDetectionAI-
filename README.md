@@ -102,55 +102,25 @@ O abre el archivo `index_fraud.html` directamente (pero necesitas que el servido
 
 ## 🌐 Despliegue en Producción
 
-### Opción 1: Frontend en Netlify + Backend en Render/Railway
+Este proyecto ya funciona completamente en Render como una aplicación Flask completa.
 
-#### PASO 1: Desplegar el Backend (API)
+### Despliegue en Render
 
-1. **Crear cuenta en Render** (gratuito): https://render.com
+1. **Crear cuenta en Render**: https://render.com
 2. **Conectar tu repo de GitHub**
-3. **Configurar como Web Service**:
+3. **Crear un nuevo Web Service**
+4. **Configurar el servicio**:
    - **Runtime**: Python 3
    - **Build Command**: `pip install -r requirements.txt`
    - **Start Command**: `python app.py`
-   - **Environment Variables**: 
+   - **Environment Variables**:
      - `FLASK_ENV=production`
      - `PORT=10000`
+5. **Deploy** y usa la URL que Render te asigne.
 
-4. **Obtener la URL de tu API** (ej: `https://tu-proyecto.onrender.com`)
+### Nota
 
-#### PASO 2: Desplegar el Frontend en Netlify
-
-1. **Ir a Netlify**: https://netlify.com
-2. **Conectar tu repo de GitHub**
-3. **Configurar build**:
-   - **Branch**: `master`
-   - **Build command**: `echo 'No build needed'`
-   - **Publish directory**: `public`
-4. **Variables de entorno**:
-   - `API_URL`: La URL de tu backend. En este proyecto ya está configurada a:
-     `https://fraud-detection-api-jmx0.onrender.com`
-
-#### PASO 3: Actualizar URLs
-
-Este repositorio ya está listo para usar tu backend desplegado en Render.
-
-**En `netlify.toml`**:
-```toml
-[build.environment]
-  API_URL = "https://fraud-detection-api-jmx0.onrender.com"
-```
-
-**En `public/_redirects`**:
-```
-/api/*  https://fraud-detection-api-jmx0.onrender.com/:splat  200
-```
-
-### Opción 2: Despliegue Completo en Railway
-
-1. **Railway**: https://railway.app (más fácil para Python)
-2. **Conectar repo de GitHub**
-3. **Configurar automáticamente** (detecta Python/Flask)
-4. **¡Listo!** Una sola URL para todo
+No es necesario usar Netlify. El servidor Flask ya sirve el `index_fraud.html`, el CSS y el JS desde Render.
 
 ---
 
