@@ -100,6 +100,69 @@ O abre el archivo `index_fraud.html` directamente (pero necesitas que el servido
 
 ---
 
+## 🌐 Despliegue en Producción
+
+### Opción 1: Frontend en Netlify + Backend en Render/Railway
+
+#### PASO 1: Desplegar el Backend (API)
+
+1. **Crear cuenta en Render** (gratuito): https://render.com
+2. **Conectar tu repo de GitHub**
+3. **Configurar como Web Service**:
+   - **Runtime**: Python 3
+   - **Build Command**: `pip install -r requirements.txt`
+   - **Start Command**: `python app.py`
+   - **Environment Variables**: 
+     - `FLASK_ENV=production`
+     - `PORT=10000`
+
+4. **Obtener la URL de tu API** (ej: `https://tu-proyecto.onrender.com`)
+
+#### PASO 2: Desplegar el Frontend en Netlify
+
+1. **Ir a Netlify**: https://netlify.com
+2. **Conectar tu repo de GitHub**
+3. **Configurar build**:
+   - **Branch**: `master`
+   - **Build command**: `echo 'No build needed'`
+   - **Publish directory**: `public`
+4. **Variables de entorno**:
+   - `API_URL`: La URL de tu backend (ej: `https://tu-proyecto.onrender.com`)
+
+#### PASO 3: Actualizar URLs
+
+Antes de desplegar, edita estos archivos:
+
+**En `netlify.toml`**:
+```toml
+[build.environment]
+  API_URL = "https://tu-backend-api.onrender.com"
+```
+
+**En `public/_redirects`**:
+```
+/api/*  https://tu-backend-api.onrender.com/:splat  200
+```
+
+### Opción 2: Despliegue Completo en Railway
+
+1. **Railway**: https://railway.app (más fácil para Python)
+2. **Conectar repo de GitHub**
+3. **Configurar automáticamente** (detecta Python/Flask)
+4. **¡Listo!** Una sola URL para todo
+
+---
+
+## 📊 Tecnologías Usadas
+
+- **Backend**: Python + Flask
+- **Machine Learning**: scikit-learn (Random Forest)
+- **Frontend**: HTML + CSS + JavaScript
+- **Datos**: Pandas + NumPy
+- **Despliegue**: Netlify (frontend) + Render/Railway (backend)
+
+---
+
 ## 📖 Explicación del Código
 
 ### 1️⃣ train_model.py - Entrenamiento

@@ -195,14 +195,26 @@ def serve_static(filename):
     return send_from_directory('.', filename)
 
 if __name__ == '__main__':
+    # Configuración para producción
+    import os
+    
+    # Puerto configurable (para Render/Railway)
+    port = int(os.environ.get('PORT', 5000))
+    
+    # Entorno de desarrollo o producción
+    debug_mode = os.environ.get('FLASK_ENV') != 'production'
+    
     print("\n🚀 INICIANDO SERVIDOR...")
     print("=" * 50)
-    print("Abierto en: http://localhost:5000")
-    print("Interfaz web: http://localhost:5000")
-    print("Estado API: http://localhost:5000/status")
+    print(f"Abierto en: http://localhost:{port}")
+    print(f"Interfaz web: http://localhost:{port}")
+    print(f"Estado API: http://localhost:{port}/status")
+    if not debug_mode:
+        print("Modo producción activado")
+    else:
+        print("Modo desarrollo activado")
     print("Presiona CTRL+C para detener el servidor")
     print("=" * 50)
     
     # Iniciar el servidor web
-    # debug=True: recarga automáticamente si hay cambios
-    app.run(debug=True, port=5000)
+    app.run(debug=debug_mode, port=port, host='0.0.0.0')

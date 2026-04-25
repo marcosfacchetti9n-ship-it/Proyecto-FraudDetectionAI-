@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detector de Fraude Financiero - IA</title>
+    <link rel="stylesheet" href="style_fraud.css">
+</head>
+<body>
+    <!-- ENCABEZADO -->
+    <div class="header">
+        <h1>🔍 Detector de Fraude Financiero</h1>
+        <p>Usa Inteligencia Artificial para detectar transacciones fraudulentas</p>
+    </div>
+
+    <!-- CONTENEDOR PRINCIPAL -->
+    <div class="container">
+        <!-- FORMULARIO DE ENTRADA -->
+        <div class="form-section">
+            <h2>📋 Ingresa datos de la transacción</h2>
+            
+            <!-- Campo: Monto -->
+            <div class="form-group">
+                <label for="amount">💵 Monto ($)</label>
+                <input 
+                    type="number" 
+                    id="amount" 
+                    placeholder="Ej: 150" 
+                    min="0"
+                    step="0.01"
+                >
+                <small>¿Cuánto dinero se transó?</small>
+            </div>
+
+            <!-- Campo: Hora del día -->
+            <div class="form-group">
+                <label for="hour">⏰ Hora del día</label>
+                <input 
+                    type="number" 
+                    id="hour" 
+                    placeholder="Ej: 14" 
+                    min="0" 
+                    max="23"
+                >
+                <small>Hora en formato 24h (0-23)</small>
+            </div>
+
+            <!-- Campo: Categoría de comercio -->
+            <div class="form-group">
+                <label for="merchant_category">🏪 Categoría del comercio</label>
+                <select id="merchant_category">
+                    <option value="">-- Selecciona una categoría --</option>
+                    <option value="groceries">🛒 Supermercado (groceries)</option>
+                    <option value="shopping">🛍️ Compras (shopping)</option>
+                    <option value="restaurant">🍽️ Restaurante</option>
+                    <option value="gas_station">⛽ Gasolinera</option>
+                    <option value="online">💻 Compra online</option>
+                    <option value="jewelry">💎 Joyería</option>
+                    <option value="coffee">☕ Café</option>
+                    <option value="pharmacy">💊 Farmacia</option>
+                    <option value="casino">🎰 Casino</option>
+                    <option value="hotel">🏨 Hotel</option>
+                    <option value="electronics">📱 Electrónica</option>
+                </select>
+                <small>¿Dónde se hizo la compra?</small>
+            </div>
+
+            <!-- Campo: Distancia desde casa -->
+            <div class="form-group">
+                <label for="distance">🗺️ Distancia desde casa (km)</label>
+                <input 
+                    type="number" 
+                    id="distance" 
+                    placeholder="Ej: 5" 
+                    min="0"
+                    step="0.1"
+                >
+                <small>¿A cuántos km está del domicilio?</small>
+            </div>
+
+            <!-- Campo: Días desde última transacción -->
+            <div class="form-group">
+                <label for="days_since">📅 Días desde última compra</label>
+                <input 
+                    type="number" 
+                    id="days_since" 
+                    placeholder="Ej: 5" 
+                    min="0"
+                >
+                <small>¿Cuántos días hace que no compra?</small>
+            </div>
+
+            <!-- Campo: Transacciones hoy -->
+            <div class="form-group">
+                <label for="transactions">🔢 Transacciones hoy</label>
+                <input 
+                    type="number" 
+                    id="transactions" 
+                    placeholder="Ej: 1" 
+                    min="0"
+                >
+                <small>¿Cuántas compras ya hizo hoy?</small>
+            </div>
+
+            <!-- Botón para analizar -->
+            <button id="analyzeBtn" class="btn-primary">
+                🚀 Analizar Transacción
+            </button>
+
+            <!-- Botón para cargar ejemplo -->
+            <button id="exampleBtn" class="btn-secondary">
+                📌 Cargar ejemplo
+            </button>
+        </div>
+
+        <!-- RESULTADO -->
+        <div class="result-section" id="resultSection" style="display: none;">
+            <h2>📊 Resultado del Análisis</h2>
+            
+            <!-- Indicador de fraude -->
+            <div id="predictionBox" class="prediction-box"></div>
+            
+            <!-- Barra de confianza -->
+            <div class="confidence-container">
+                <h3>📈 Nivel de confianza</h3>
+                <div class="confidence-bar">
+                    <div id="fraudBar" class="fraud-bar"></div>
+                </div>
+                <div class="confidence-labels">
+                    <span>Fraude: <strong id="fraudPercent">0%</strong></span>
+                    <span>Legítimo: <strong id="legitPercent">0%</strong></span>
+                </div>
+            </div>
+
+            <!-- Detalles de la transacción -->
+            <div class="transaction-details">
+                <h3>🔍 Datos analizados</h3>
+                <table id="detailsTable">
+                    <tr>
+                        <th>Parámetro</th>
+                        <th>Valor</th>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- Explicación -->
+            <div class="explanation">
+                <h3>💡 ¿Por qué el modelo lo detectó así?</h3>
+                <p id="explanation"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        <p>🎓 Proyecto educativo | Detector de Fraude con IA | Tecnicatura en Inteligencia Artificial</p>
+    </div>
+
+    <!-- Script JavaScript -->
+    <script src="app_fraud.js"></script>
+</body>
+</html>
