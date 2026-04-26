@@ -2,8 +2,15 @@
 // LÓGICA DEL DETECTOR DE FRAUDE (FRONTEND)
 // ========================================
 
-// URL del servidor backend
-const API_URL = 'http://localhost:5000';
+// Detectamos si estamos en desarrollo o en producción
+const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+
+// URL del servidor (usamos localhost si es local, si no, usamos la de Render)
+const API_URL = isLocal 
+    ? 'http://localhost:5000' 
+    : 'https://fraud-detection-api-jmx0.onrender.com';
+
+console.log('API conectada a:', API_URL);
 
 // FUNCIÓN: Cuando la página carga, ejecutar esto
 document.addEventListener('DOMContentLoaded', function() {
