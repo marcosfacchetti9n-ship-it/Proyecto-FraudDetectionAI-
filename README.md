@@ -11,6 +11,8 @@ La aplicación combina:
 
 Mi objetivo fue desarrollar un caso práctico sólido que muestre tanto habilidades técnicas como enfoque en producto.
 
+Demo: https://fraud-detection-api-jmx0.onrender.com/
+
 ---
 
 ## 🎯 Qué resolví
